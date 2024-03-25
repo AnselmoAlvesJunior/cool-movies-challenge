@@ -1,0 +1,39 @@
+# Arquivos de compilação e cache do Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub/
+build/
+.dart_tool/
+build_runner/
+
+# Android
+android/.gradle
+android/app/build/
+android/gradle/
+android/gradlew
+android/gradlew.bat
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/.last_build_id
+ios/Flutter/Flutter.framework
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcworkspace
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Android Studio
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/

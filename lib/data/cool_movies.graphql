@@ -1,0 +1,42 @@
+query AllMovies {
+  allMovies {
+    nodes {
+      id
+      imgUrl
+      movieDirectorId
+      userCreatorId
+      title
+      releaseDate
+      nodeId
+      userByUserCreatorId {
+        id
+        name
+        nodeId
+      }
+    }
+  }
+}
+
+type userByUserCreatorIdFields {
+  id: String
+  name: String
+  nodeId: String
+}
+
+type nodeFields {
+  id: String
+  imgUrl: String
+  movieDirectorId:String
+  userCreatorId: String
+  title: String
+  releaseDate: String
+  nodeId: String
+  userByUserCreatorId: userByUserCreatorIdFields
+}
+
+type nodes {
+  nodes: nodeFields
+}
+type Query {
+  allMovies: nodes
+}

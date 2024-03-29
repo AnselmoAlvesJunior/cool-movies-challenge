@@ -1,4 +1,8 @@
+import 'dart:async';
+import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
+import 'package:graphql/client.dart' as graphql;
+import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
 class Query$AllMovies {
   Query$AllMovies({
@@ -270,33 +274,168 @@ const documentNodeQueryAllMovies = DocumentNode(definitions: [
     ]),
   ),
 ]);
+Query$AllMovies _parserFn$Query$AllMovies(Map<String, dynamic> data) =>
+    Query$AllMovies.fromJson(data);
+typedef OnQueryComplete$Query$AllMovies = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$AllMovies?,
+);
+
+class Options$Query$AllMovies extends graphql.QueryOptions<Query$AllMovies> {
+  Options$Query$AllMovies({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$AllMovies? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$AllMovies? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null ? null : _parserFn$Query$AllMovies(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryAllMovies,
+          parserFn: _parserFn$Query$AllMovies,
+        );
+
+  final OnQueryComplete$Query$AllMovies? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$AllMovies
+    extends graphql.WatchQueryOptions<Query$AllMovies> {
+  WatchOptions$Query$AllMovies({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$AllMovies? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryAllMovies,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$AllMovies,
+        );
+}
+
+class FetchMoreOptions$Query$AllMovies extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$AllMovies({required graphql.UpdateQuery updateQuery})
+      : super(
+          updateQuery: updateQuery,
+          document: documentNodeQueryAllMovies,
+        );
+}
+
+extension ClientExtension$Query$AllMovies on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$AllMovies>> query$AllMovies(
+          [Options$Query$AllMovies? options]) async =>
+      await this.query(options ?? Options$Query$AllMovies());
+  graphql.ObservableQuery<Query$AllMovies> watchQuery$AllMovies(
+          [WatchOptions$Query$AllMovies? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$AllMovies());
+  void writeQuery$AllMovies({
+    required Query$AllMovies data,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: documentNodeQueryAllMovies)),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$AllMovies? readQuery$AllMovies({bool optimistic = true}) {
+    final result = this.readQuery(
+      graphql.Request(
+          operation: graphql.Operation(document: documentNodeQueryAllMovies)),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$AllMovies.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$AllMovies> useQuery$AllMovies(
+        [Options$Query$AllMovies? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$AllMovies());
+graphql.ObservableQuery<Query$AllMovies> useWatchQuery$AllMovies(
+        [WatchOptions$Query$AllMovies? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$AllMovies());
+
+class Query$AllMovies$Widget extends graphql_flutter.Query<Query$AllMovies> {
+  Query$AllMovies$Widget({
+    widgets.Key? key,
+    Options$Query$AllMovies? options,
+    required graphql_flutter.QueryBuilder<Query$AllMovies> builder,
+  }) : super(
+          key: key,
+          options: options ?? Options$Query$AllMovies(),
+          builder: builder,
+        );
+}
 
 class Query$AllMovies$allMovies {
   Query$AllMovies$allMovies({
-    this.nodes,
-    this.$__typename = 'nodes',
+    required this.nodes,
+    this.$__typename = 'MoviesConnection',
   });
 
   factory Query$AllMovies$allMovies.fromJson(Map<String, dynamic> json) {
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Query$AllMovies$allMovies(
-      nodes: l$nodes == null
-          ? null
-          : Query$AllMovies$allMovies$nodes.fromJson(
-              (l$nodes as Map<String, dynamic>)),
+      nodes: (l$nodes as List<dynamic>)
+          .map((e) => e == null
+              ? null
+              : Query$AllMovies$allMovies$nodes.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$AllMovies$allMovies$nodes? nodes;
+  final List<Query$AllMovies$allMovies$nodes?> nodes;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$nodes = nodes;
-    _resultData['nodes'] = l$nodes?.toJson();
+    _resultData['nodes'] = l$nodes.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -307,7 +446,7 @@ class Query$AllMovies$allMovies {
     final l$nodes = nodes;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$nodes,
+      Object.hashAll(l$nodes.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -323,8 +462,15 @@ class Query$AllMovies$allMovies {
     }
     final l$nodes = nodes;
     final lOther$nodes = other.nodes;
-    if (l$nodes != lOther$nodes) {
+    if (l$nodes.length != lOther$nodes.length) {
       return false;
+    }
+    for (int i = 0; i < l$nodes.length; i++) {
+      final l$nodes$entry = l$nodes[i];
+      final lOther$nodes$entry = lOther$nodes[i];
+      if (l$nodes$entry != lOther$nodes$entry) {
+        return false;
+      }
     }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -354,10 +500,15 @@ abstract class CopyWith$Query$AllMovies$allMovies<TRes> {
       _CopyWithStubImpl$Query$AllMovies$allMovies;
 
   TRes call({
-    Query$AllMovies$allMovies$nodes? nodes,
+    List<Query$AllMovies$allMovies$nodes?>? nodes,
     String? $__typename,
   });
-  CopyWith$Query$AllMovies$allMovies$nodes<TRes> get nodes;
+  TRes nodes(
+      Iterable<Query$AllMovies$allMovies$nodes?> Function(
+              Iterable<
+                  CopyWith$Query$AllMovies$allMovies$nodes<
+                      Query$AllMovies$allMovies$nodes>?>)
+          _fn);
 }
 
 class _CopyWithImpl$Query$AllMovies$allMovies<TRes>
@@ -378,21 +529,27 @@ class _CopyWithImpl$Query$AllMovies$allMovies<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$AllMovies$allMovies(
-        nodes: nodes == _undefined
+        nodes: nodes == _undefined || nodes == null
             ? _instance.nodes
-            : (nodes as Query$AllMovies$allMovies$nodes?),
+            : (nodes as List<Query$AllMovies$allMovies$nodes?>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Query$AllMovies$allMovies$nodes<TRes> get nodes {
-    final local$nodes = _instance.nodes;
-    return local$nodes == null
-        ? CopyWith$Query$AllMovies$allMovies$nodes.stub(_then(_instance))
-        : CopyWith$Query$AllMovies$allMovies$nodes(
-            local$nodes, (e) => call(nodes: e));
-  }
+  TRes nodes(
+          Iterable<Query$AllMovies$allMovies$nodes?> Function(
+                  Iterable<
+                      CopyWith$Query$AllMovies$allMovies$nodes<
+                          Query$AllMovies$allMovies$nodes>?>)
+              _fn) =>
+      call(
+          nodes: _fn(_instance.nodes.map((e) => e == null
+              ? null
+              : CopyWith$Query$AllMovies$allMovies$nodes(
+                  e,
+                  (i) => i,
+                ))).toList());
 }
 
 class _CopyWithStubImpl$Query$AllMovies$allMovies<TRes>
@@ -402,26 +559,25 @@ class _CopyWithStubImpl$Query$AllMovies$allMovies<TRes>
   TRes _res;
 
   call({
-    Query$AllMovies$allMovies$nodes? nodes,
+    List<Query$AllMovies$allMovies$nodes?>? nodes,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Query$AllMovies$allMovies$nodes<TRes> get nodes =>
-      CopyWith$Query$AllMovies$allMovies$nodes.stub(_res);
+  nodes(_fn) => _res;
 }
 
 class Query$AllMovies$allMovies$nodes {
   Query$AllMovies$allMovies$nodes({
-    this.id,
-    this.imgUrl,
-    this.movieDirectorId,
-    this.userCreatorId,
-    this.title,
-    this.releaseDate,
-    this.nodeId,
+    required this.id,
+    required this.imgUrl,
+    required this.movieDirectorId,
+    required this.userCreatorId,
+    required this.title,
+    required this.releaseDate,
+    required this.nodeId,
     this.userByUserCreatorId,
-    this.$__typename = 'nodeFields',
+    this.$__typename = 'Movie',
   });
 
   factory Query$AllMovies$allMovies$nodes.fromJson(Map<String, dynamic> json) {
@@ -435,13 +591,13 @@ class Query$AllMovies$allMovies$nodes {
     final l$userByUserCreatorId = json['userByUserCreatorId'];
     final l$$__typename = json['__typename'];
     return Query$AllMovies$allMovies$nodes(
-      id: (l$id as String?),
-      imgUrl: (l$imgUrl as String?),
-      movieDirectorId: (l$movieDirectorId as String?),
-      userCreatorId: (l$userCreatorId as String?),
-      title: (l$title as String?),
-      releaseDate: (l$releaseDate as String?),
-      nodeId: (l$nodeId as String?),
+      id: (l$id as String),
+      imgUrl: (l$imgUrl as String),
+      movieDirectorId: (l$movieDirectorId as String),
+      userCreatorId: (l$userCreatorId as String),
+      title: (l$title as String),
+      releaseDate: (l$releaseDate as String),
+      nodeId: (l$nodeId as String),
       userByUserCreatorId: l$userByUserCreatorId == null
           ? null
           : Query$AllMovies$allMovies$nodes$userByUserCreatorId.fromJson(
@@ -450,19 +606,19 @@ class Query$AllMovies$allMovies$nodes {
     );
   }
 
-  final String? id;
+  final String id;
 
-  final String? imgUrl;
+  final String imgUrl;
 
-  final String? movieDirectorId;
+  final String movieDirectorId;
 
-  final String? userCreatorId;
+  final String userCreatorId;
 
-  final String? title;
+  final String title;
 
-  final String? releaseDate;
+  final String releaseDate;
 
-  final String? nodeId;
+  final String nodeId;
 
   final Query$AllMovies$allMovies$nodes$userByUserCreatorId?
       userByUserCreatorId;
@@ -632,19 +788,26 @@ class _CopyWithImpl$Query$AllMovies$allMovies$nodes<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$AllMovies$allMovies$nodes(
-        id: id == _undefined ? _instance.id : (id as String?),
-        imgUrl: imgUrl == _undefined ? _instance.imgUrl : (imgUrl as String?),
-        movieDirectorId: movieDirectorId == _undefined
-            ? _instance.movieDirectorId
-            : (movieDirectorId as String?),
-        userCreatorId: userCreatorId == _undefined
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        imgUrl: imgUrl == _undefined || imgUrl == null
+            ? _instance.imgUrl
+            : (imgUrl as String),
+        movieDirectorId:
+            movieDirectorId == _undefined || movieDirectorId == null
+                ? _instance.movieDirectorId
+                : (movieDirectorId as String),
+        userCreatorId: userCreatorId == _undefined || userCreatorId == null
             ? _instance.userCreatorId
-            : (userCreatorId as String?),
-        title: title == _undefined ? _instance.title : (title as String?),
-        releaseDate: releaseDate == _undefined
+            : (userCreatorId as String),
+        title: title == _undefined || title == null
+            ? _instance.title
+            : (title as String),
+        releaseDate: releaseDate == _undefined || releaseDate == null
             ? _instance.releaseDate
-            : (releaseDate as String?),
-        nodeId: nodeId == _undefined ? _instance.nodeId : (nodeId as String?),
+            : (releaseDate as String),
+        nodeId: nodeId == _undefined || nodeId == null
+            ? _instance.nodeId
+            : (nodeId as String),
         userByUserCreatorId: userByUserCreatorId == _undefined
             ? _instance.userByUserCreatorId
             : (userByUserCreatorId
@@ -692,10 +855,10 @@ class _CopyWithStubImpl$Query$AllMovies$allMovies$nodes<TRes>
 
 class Query$AllMovies$allMovies$nodes$userByUserCreatorId {
   Query$AllMovies$allMovies$nodes$userByUserCreatorId({
-    this.id,
-    this.name,
-    this.nodeId,
-    this.$__typename = 'userByUserCreatorIdFields',
+    required this.id,
+    required this.name,
+    required this.nodeId,
+    this.$__typename = 'User',
   });
 
   factory Query$AllMovies$allMovies$nodes$userByUserCreatorId.fromJson(
@@ -705,18 +868,18 @@ class Query$AllMovies$allMovies$nodes$userByUserCreatorId {
     final l$nodeId = json['nodeId'];
     final l$$__typename = json['__typename'];
     return Query$AllMovies$allMovies$nodes$userByUserCreatorId(
-      id: (l$id as String?),
-      name: (l$name as String?),
-      nodeId: (l$nodeId as String?),
+      id: (l$id as String),
+      name: (l$name as String),
+      nodeId: (l$nodeId as String),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final String? id;
+  final String id;
 
-  final String? name;
+  final String name;
 
-  final String? nodeId;
+  final String nodeId;
 
   final String $__typename;
 
@@ -832,9 +995,13 @@ class _CopyWithImpl$Query$AllMovies$allMovies$nodes$userByUserCreatorId<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$AllMovies$allMovies$nodes$userByUserCreatorId(
-        id: id == _undefined ? _instance.id : (id as String?),
-        name: name == _undefined ? _instance.name : (name as String?),
-        nodeId: nodeId == _undefined ? _instance.nodeId : (nodeId as String?),
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        nodeId: nodeId == _undefined || nodeId == null
+            ? _instance.nodeId
+            : (nodeId as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -858,5 +1025,3 @@ class _CopyWithStubImpl$Query$AllMovies$allMovies$nodes$userByUserCreatorId<
   }) =>
       _res;
 }
-
-const possibleTypesMap = <String, Set<String>>{};

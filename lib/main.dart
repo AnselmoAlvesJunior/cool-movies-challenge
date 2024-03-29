@@ -1,5 +1,8 @@
 import 'package:coolmovies/di/dependency_injection.dart';
+import 'package:coolmovies/graph_ql_client_movies.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'Screen/cool_movies_screen.dart';
 
 void main() async {
@@ -13,12 +16,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cool Movies Challenge',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const CoolMoviesScreen(),
+    return GraphQLProvider(
+        client: GetIt.I<GraphQlClientMovies>().clientNotifier,
+        child:  MaterialApp(
+        title: 'Cool Movies Challenge',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const CoolMoviesScreen(),
+        ),
+      
     );
   }
 }

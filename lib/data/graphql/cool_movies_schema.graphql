@@ -1,0 +1,2306 @@
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+type Comment implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  userId: UUID!
+  title: String
+  body: String
+  movieReviewId: UUID!
+
+  """Reads a single `User` that is related to this `Comment`."""
+  userByUserId: User
+
+  """Reads a single `MovieReview` that is related to this `Comment`."""
+  movieReviewByMovieReviewId: MovieReview
+}
+
+"""
+A condition to be used against `Comment` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input CommentCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `userId` field."""
+  userId: UUID
+
+  """Checks for equality with the object’s `title` field."""
+  title: String
+
+  """Checks for equality with the object’s `body` field."""
+  body: String
+
+  """Checks for equality with the object’s `movieReviewId` field."""
+  movieReviewId: UUID
+}
+
+"""
+A filter to be used against `Comment` object types. All fields are combined with a logical ‘and.’
+"""
+input CommentFilter {
+  """Filter by the object’s `id` field."""
+  id: UUIDFilter
+
+  """Filter by the object’s `userId` field."""
+  userId: UUIDFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `body` field."""
+  body: StringFilter
+
+  """Filter by the object’s `movieReviewId` field."""
+  movieReviewId: UUIDFilter
+
+  """Checks for all expressions in this list."""
+  and: [CommentFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [CommentFilter!]
+
+  """Negates the expression."""
+  not: CommentFilter
+}
+
+"""An input for mutations affecting `Comment`"""
+input CommentInput {
+  id: UUID
+  userId: UUID!
+  title: String
+  body: String
+  movieReviewId: UUID!
+}
+
+"""
+Represents an update to a `Comment`. Fields that are set will be updated.
+"""
+input CommentPatch {
+  id: UUID
+  userId: UUID
+  title: String
+  body: String
+  movieReviewId: UUID
+}
+
+"""A connection to a list of `Comment` values."""
+type CommentsConnection {
+  """A list of `Comment` objects."""
+  nodes: [Comment]!
+
+  """
+  A list of edges which contains the `Comment` and cursor to aid in pagination.
+  """
+  edges: [CommentsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Comment` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Comment` edge in the connection."""
+type CommentsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Comment` at the end of the edge."""
+  node: Comment
+}
+
+"""Methods to use when ordering `Comment`."""
+enum CommentsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  BODY_ASC
+  BODY_DESC
+  MOVIE_REVIEW_ID_ASC
+  MOVIE_REVIEW_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""All input for the create `Comment` mutation."""
+input CreateCommentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Comment` to be created by this mutation."""
+  comment: CommentInput!
+}
+
+"""The output of our create `Comment` mutation."""
+type CreateCommentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Comment` that was created by this mutation."""
+  comment: Comment
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `Comment`."""
+  userByUserId: User
+
+  """Reads a single `MovieReview` that is related to this `Comment`."""
+  movieReviewByMovieReviewId: MovieReview
+
+  """An edge for our `Comment`. May be used by Relay 1."""
+  commentEdge(
+    """The method to use when ordering `Comment`."""
+    orderBy: [CommentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CommentsEdge
+}
+
+"""All input for the create `MovieDirector` mutation."""
+input CreateMovieDirectorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `MovieDirector` to be created by this mutation."""
+  movieDirector: MovieDirectorInput!
+}
+
+"""The output of our create `MovieDirector` mutation."""
+type CreateMovieDirectorPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MovieDirector` that was created by this mutation."""
+  movieDirector: MovieDirector
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `MovieDirector`. May be used by Relay 1."""
+  movieDirectorEdge(
+    """The method to use when ordering `MovieDirector`."""
+    orderBy: [MovieDirectorsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MovieDirectorsEdge
+}
+
+"""All input for the create `Movie` mutation."""
+input CreateMovieInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Movie` to be created by this mutation."""
+  movie: MovieInput!
+}
+
+"""The output of our create `Movie` mutation."""
+type CreateMoviePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Movie` that was created by this mutation."""
+  movie: Movie
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `MovieDirector` that is related to this `Movie`."""
+  movieDirectorByMovieDirectorId: MovieDirector
+
+  """Reads a single `User` that is related to this `Movie`."""
+  userByUserCreatorId: User
+
+  """An edge for our `Movie`. May be used by Relay 1."""
+  movieEdge(
+    """The method to use when ordering `Movie`."""
+    orderBy: [MoviesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MoviesEdge
+}
+
+"""All input for the create `MovieReview` mutation."""
+input CreateMovieReviewInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `MovieReview` to be created by this mutation."""
+  movieReview: MovieReviewInput!
+}
+
+"""The output of our create `MovieReview` mutation."""
+type CreateMovieReviewPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MovieReview` that was created by this mutation."""
+  movieReview: MovieReview
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Movie` that is related to this `MovieReview`."""
+  movieByMovieId: Movie
+
+  """Reads a single `User` that is related to this `MovieReview`."""
+  userByUserReviewerId: User
+
+  """An edge for our `MovieReview`. May be used by Relay 1."""
+  movieReviewEdge(
+    """The method to use when ordering `MovieReview`."""
+    orderBy: [MovieReviewsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MovieReviewsEdge
+}
+
+"""All input for the create `User` mutation."""
+input CreateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `User` to be created by this mutation."""
+  user: UserInput!
+}
+
+"""The output of our create `User` mutation."""
+type CreateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was created by this mutation."""
+  user: User
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""The day, does not include a time."""
+scalar Date
+
+"""
+A filter to be used against Date fields. All fields are combined with a logical ‘and.’
+"""
+input DateFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Date
+
+  """Not equal to the specified value."""
+  notEqualTo: Date
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Date
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Date
+
+  """Included in the specified list."""
+  in: [Date!]
+
+  """Not included in the specified list."""
+  notIn: [Date!]
+
+  """Less than the specified value."""
+  lessThan: Date
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Date
+
+  """Greater than the specified value."""
+  greaterThan: Date
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Date
+}
+
+"""All input for the `deleteCommentById` mutation."""
+input DeleteCommentByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""All input for the `deleteComment` mutation."""
+input DeleteCommentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Comment` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Comment` mutation."""
+type DeleteCommentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Comment` that was deleted by this mutation."""
+  comment: Comment
+  deletedCommentId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `Comment`."""
+  userByUserId: User
+
+  """Reads a single `MovieReview` that is related to this `Comment`."""
+  movieReviewByMovieReviewId: MovieReview
+
+  """An edge for our `Comment`. May be used by Relay 1."""
+  commentEdge(
+    """The method to use when ordering `Comment`."""
+    orderBy: [CommentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CommentsEdge
+}
+
+"""All input for the `deleteMovieById` mutation."""
+input DeleteMovieByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""All input for the `deleteMovieDirectorById` mutation."""
+input DeleteMovieDirectorByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""All input for the `deleteMovieDirector` mutation."""
+input DeleteMovieDirectorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MovieDirector` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `MovieDirector` mutation."""
+type DeleteMovieDirectorPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MovieDirector` that was deleted by this mutation."""
+  movieDirector: MovieDirector
+  deletedMovieDirectorId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `MovieDirector`. May be used by Relay 1."""
+  movieDirectorEdge(
+    """The method to use when ordering `MovieDirector`."""
+    orderBy: [MovieDirectorsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MovieDirectorsEdge
+}
+
+"""All input for the `deleteMovie` mutation."""
+input DeleteMovieInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Movie` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Movie` mutation."""
+type DeleteMoviePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Movie` that was deleted by this mutation."""
+  movie: Movie
+  deletedMovieId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `MovieDirector` that is related to this `Movie`."""
+  movieDirectorByMovieDirectorId: MovieDirector
+
+  """Reads a single `User` that is related to this `Movie`."""
+  userByUserCreatorId: User
+
+  """An edge for our `Movie`. May be used by Relay 1."""
+  movieEdge(
+    """The method to use when ordering `Movie`."""
+    orderBy: [MoviesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MoviesEdge
+}
+
+"""All input for the `deleteMovieReviewById` mutation."""
+input DeleteMovieReviewByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""All input for the `deleteMovieReview` mutation."""
+input DeleteMovieReviewInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MovieReview` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `MovieReview` mutation."""
+type DeleteMovieReviewPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MovieReview` that was deleted by this mutation."""
+  movieReview: MovieReview
+  deletedMovieReviewId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Movie` that is related to this `MovieReview`."""
+  movieByMovieId: Movie
+
+  """Reads a single `User` that is related to this `MovieReview`."""
+  userByUserReviewerId: User
+
+  """An edge for our `MovieReview`. May be used by Relay 1."""
+  movieReviewEdge(
+    """The method to use when ordering `MovieReview`."""
+    orderBy: [MovieReviewsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MovieReviewsEdge
+}
+
+"""All input for the `deleteUserById` mutation."""
+input DeleteUserByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""All input for the `deleteUser` mutation."""
+input DeleteUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `User` mutation."""
+type DeleteUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was deleted by this mutation."""
+  user: User
+  deletedUserId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Int
+
+  """Not equal to the specified value."""
+  notEqualTo: Int
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Int
+
+  """Included in the specified list."""
+  in: [Int!]
+
+  """Not included in the specified list."""
+  notIn: [Int!]
+
+  """Less than the specified value."""
+  lessThan: Int
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Int
+
+  """Greater than the specified value."""
+  greaterThan: Int
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Int
+}
+
+type Movie implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  title: String!
+  movieDirectorId: UUID!
+  userCreatorId: UUID!
+  releaseDate: Date!
+  imgUrl: String!
+
+  """Reads a single `MovieDirector` that is related to this `Movie`."""
+  movieDirectorByMovieDirectorId: MovieDirector
+
+  """Reads a single `User` that is related to this `Movie`."""
+  userByUserCreatorId: User
+
+  """Reads and enables pagination through a set of `MovieReview`."""
+  movieReviewsByMovieId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MovieReview`."""
+    orderBy: [MovieReviewsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MovieReviewCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MovieReviewFilter
+  ): MovieReviewsConnection!
+}
+
+"""
+A condition to be used against `Movie` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input MovieCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `title` field."""
+  title: String
+
+  """Checks for equality with the object’s `movieDirectorId` field."""
+  movieDirectorId: UUID
+
+  """Checks for equality with the object’s `userCreatorId` field."""
+  userCreatorId: UUID
+
+  """Checks for equality with the object’s `releaseDate` field."""
+  releaseDate: Date
+
+  """Checks for equality with the object’s `imgUrl` field."""
+  imgUrl: String
+}
+
+type MovieDirector implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  name: String!
+  age: Int!
+
+  """Reads and enables pagination through a set of `Movie`."""
+  moviesByMovieDirectorId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Movie`."""
+    orderBy: [MoviesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MovieCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MovieFilter
+  ): MoviesConnection!
+}
+
+"""
+A condition to be used against `MovieDirector` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input MovieDirectorCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `age` field."""
+  age: Int
+}
+
+"""
+A filter to be used against `MovieDirector` object types. All fields are combined with a logical ‘and.’
+"""
+input MovieDirectorFilter {
+  """Filter by the object’s `id` field."""
+  id: UUIDFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `age` field."""
+  age: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [MovieDirectorFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [MovieDirectorFilter!]
+
+  """Negates the expression."""
+  not: MovieDirectorFilter
+}
+
+"""An input for mutations affecting `MovieDirector`"""
+input MovieDirectorInput {
+  id: UUID
+  name: String!
+  age: Int!
+}
+
+"""
+Represents an update to a `MovieDirector`. Fields that are set will be updated.
+"""
+input MovieDirectorPatch {
+  id: UUID
+  name: String
+  age: Int
+}
+
+"""A connection to a list of `MovieDirector` values."""
+type MovieDirectorsConnection {
+  """A list of `MovieDirector` objects."""
+  nodes: [MovieDirector]!
+
+  """
+  A list of edges which contains the `MovieDirector` and cursor to aid in pagination.
+  """
+  edges: [MovieDirectorsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `MovieDirector` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `MovieDirector` edge in the connection."""
+type MovieDirectorsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `MovieDirector` at the end of the edge."""
+  node: MovieDirector
+}
+
+"""Methods to use when ordering `MovieDirector`."""
+enum MovieDirectorsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  AGE_ASC
+  AGE_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A filter to be used against `Movie` object types. All fields are combined with a logical ‘and.’
+"""
+input MovieFilter {
+  """Filter by the object’s `id` field."""
+  id: UUIDFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `movieDirectorId` field."""
+  movieDirectorId: UUIDFilter
+
+  """Filter by the object’s `userCreatorId` field."""
+  userCreatorId: UUIDFilter
+
+  """Filter by the object’s `releaseDate` field."""
+  releaseDate: DateFilter
+
+  """Filter by the object’s `imgUrl` field."""
+  imgUrl: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [MovieFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [MovieFilter!]
+
+  """Negates the expression."""
+  not: MovieFilter
+}
+
+"""An input for mutations affecting `Movie`"""
+input MovieInput {
+  id: UUID
+  title: String!
+  movieDirectorId: UUID!
+  userCreatorId: UUID!
+  releaseDate: Date!
+  imgUrl: String!
+}
+
+"""
+Represents an update to a `Movie`. Fields that are set will be updated.
+"""
+input MoviePatch {
+  id: UUID
+  title: String
+  movieDirectorId: UUID
+  userCreatorId: UUID
+  releaseDate: Date
+  imgUrl: String
+}
+
+type MovieReview implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  title: String!
+  body: String
+  rating: Int
+  movieId: UUID!
+  userReviewerId: UUID!
+
+  """Reads a single `Movie` that is related to this `MovieReview`."""
+  movieByMovieId: Movie
+
+  """Reads a single `User` that is related to this `MovieReview`."""
+  userByUserReviewerId: User
+
+  """Reads and enables pagination through a set of `Comment`."""
+  commentsByMovieReviewId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Comment`."""
+    orderBy: [CommentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CommentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CommentFilter
+  ): CommentsConnection!
+}
+
+"""
+A condition to be used against `MovieReview` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input MovieReviewCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `title` field."""
+  title: String
+
+  """Checks for equality with the object’s `body` field."""
+  body: String
+
+  """Checks for equality with the object’s `rating` field."""
+  rating: Int
+
+  """Checks for equality with the object’s `movieId` field."""
+  movieId: UUID
+
+  """Checks for equality with the object’s `userReviewerId` field."""
+  userReviewerId: UUID
+}
+
+"""
+A filter to be used against `MovieReview` object types. All fields are combined with a logical ‘and.’
+"""
+input MovieReviewFilter {
+  """Filter by the object’s `id` field."""
+  id: UUIDFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `body` field."""
+  body: StringFilter
+
+  """Filter by the object’s `rating` field."""
+  rating: IntFilter
+
+  """Filter by the object’s `movieId` field."""
+  movieId: UUIDFilter
+
+  """Filter by the object’s `userReviewerId` field."""
+  userReviewerId: UUIDFilter
+
+  """Checks for all expressions in this list."""
+  and: [MovieReviewFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [MovieReviewFilter!]
+
+  """Negates the expression."""
+  not: MovieReviewFilter
+}
+
+"""An input for mutations affecting `MovieReview`"""
+input MovieReviewInput {
+  id: UUID
+  title: String!
+  body: String
+  rating: Int
+  movieId: UUID!
+  userReviewerId: UUID!
+}
+
+"""
+Represents an update to a `MovieReview`. Fields that are set will be updated.
+"""
+input MovieReviewPatch {
+  id: UUID
+  title: String
+  body: String
+  rating: Int
+  movieId: UUID
+  userReviewerId: UUID
+}
+
+"""A connection to a list of `MovieReview` values."""
+type MovieReviewsConnection {
+  """A list of `MovieReview` objects."""
+  nodes: [MovieReview]!
+
+  """
+  A list of edges which contains the `MovieReview` and cursor to aid in pagination.
+  """
+  edges: [MovieReviewsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `MovieReview` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `MovieReview` edge in the connection."""
+type MovieReviewsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `MovieReview` at the end of the edge."""
+  node: MovieReview
+}
+
+"""Methods to use when ordering `MovieReview`."""
+enum MovieReviewsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  BODY_ASC
+  BODY_DESC
+  RATING_ASC
+  RATING_DESC
+  MOVIE_ID_ASC
+  MOVIE_ID_DESC
+  USER_REVIEWER_ID_ASC
+  USER_REVIEWER_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""A connection to a list of `Movie` values."""
+type MoviesConnection {
+  """A list of `Movie` objects."""
+  nodes: [Movie]!
+
+  """
+  A list of edges which contains the `Movie` and cursor to aid in pagination.
+  """
+  edges: [MoviesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Movie` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Movie` edge in the connection."""
+type MoviesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Movie` at the end of the edge."""
+  node: Movie
+}
+
+"""Methods to use when ordering `Movie`."""
+enum MoviesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  MOVIE_DIRECTOR_ID_ASC
+  MOVIE_DIRECTOR_ID_DESC
+  USER_CREATOR_ID_ASC
+  USER_CREATOR_ID_DESC
+  RELEASE_DATE_ASC
+  RELEASE_DATE_DESC
+  IMG_URL_ASC
+  IMG_URL_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `Comment`."""
+  createComment(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCommentInput!
+  ): CreateCommentPayload
+
+  """Creates a single `MovieDirector`."""
+  createMovieDirector(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMovieDirectorInput!
+  ): CreateMovieDirectorPayload
+
+  """Creates a single `MovieReview`."""
+  createMovieReview(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMovieReviewInput!
+  ): CreateMovieReviewPayload
+
+  """Creates a single `Movie`."""
+  createMovie(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMovieInput!
+  ): CreateMoviePayload
+
+  """Creates a single `User`."""
+  createUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserInput!
+  ): CreateUserPayload
+
+  """Updates a single `Comment` using its globally unique id and a patch."""
+  updateComment(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCommentInput!
+  ): UpdateCommentPayload
+
+  """Updates a single `Comment` using a unique key and a patch."""
+  updateCommentById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCommentByIdInput!
+  ): UpdateCommentPayload
+
+  """
+  Updates a single `MovieDirector` using its globally unique id and a patch.
+  """
+  updateMovieDirector(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMovieDirectorInput!
+  ): UpdateMovieDirectorPayload
+
+  """Updates a single `MovieDirector` using a unique key and a patch."""
+  updateMovieDirectorById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMovieDirectorByIdInput!
+  ): UpdateMovieDirectorPayload
+
+  """
+  Updates a single `MovieReview` using its globally unique id and a patch.
+  """
+  updateMovieReview(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMovieReviewInput!
+  ): UpdateMovieReviewPayload
+
+  """Updates a single `MovieReview` using a unique key and a patch."""
+  updateMovieReviewById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMovieReviewByIdInput!
+  ): UpdateMovieReviewPayload
+
+  """Updates a single `Movie` using its globally unique id and a patch."""
+  updateMovie(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMovieInput!
+  ): UpdateMoviePayload
+
+  """Updates a single `Movie` using a unique key and a patch."""
+  updateMovieById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMovieByIdInput!
+  ): UpdateMoviePayload
+
+  """Updates a single `User` using its globally unique id and a patch."""
+  updateUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserInput!
+  ): UpdateUserPayload
+
+  """Updates a single `User` using a unique key and a patch."""
+  updateUserById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserByIdInput!
+  ): UpdateUserPayload
+
+  """Deletes a single `Comment` using its globally unique id."""
+  deleteComment(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCommentInput!
+  ): DeleteCommentPayload
+
+  """Deletes a single `Comment` using a unique key."""
+  deleteCommentById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCommentByIdInput!
+  ): DeleteCommentPayload
+
+  """Deletes a single `MovieDirector` using its globally unique id."""
+  deleteMovieDirector(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMovieDirectorInput!
+  ): DeleteMovieDirectorPayload
+
+  """Deletes a single `MovieDirector` using a unique key."""
+  deleteMovieDirectorById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMovieDirectorByIdInput!
+  ): DeleteMovieDirectorPayload
+
+  """Deletes a single `MovieReview` using its globally unique id."""
+  deleteMovieReview(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMovieReviewInput!
+  ): DeleteMovieReviewPayload
+
+  """Deletes a single `MovieReview` using a unique key."""
+  deleteMovieReviewById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMovieReviewByIdInput!
+  ): DeleteMovieReviewPayload
+
+  """Deletes a single `Movie` using its globally unique id."""
+  deleteMovie(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMovieInput!
+  ): DeleteMoviePayload
+
+  """Deletes a single `Movie` using a unique key."""
+  deleteMovieById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMovieByIdInput!
+  ): DeleteMoviePayload
+
+  """Deletes a single `User` using its globally unique id."""
+  deleteUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserInput!
+  ): DeleteUserPayload
+
+  """Deletes a single `User` using a unique key."""
+  deleteUserById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserByIdInput!
+  ): DeleteUserPayload
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """Reads and enables pagination through a set of `Comment`."""
+  allComments(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Comment`."""
+    orderBy: [CommentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CommentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CommentFilter
+  ): CommentsConnection
+
+  """Reads and enables pagination through a set of `MovieDirector`."""
+  allMovieDirectors(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MovieDirector`."""
+    orderBy: [MovieDirectorsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MovieDirectorCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MovieDirectorFilter
+  ): MovieDirectorsConnection
+
+  """Reads and enables pagination through a set of `MovieReview`."""
+  allMovieReviews(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MovieReview`."""
+    orderBy: [MovieReviewsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MovieReviewCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MovieReviewFilter
+  ): MovieReviewsConnection
+
+  """Reads and enables pagination through a set of `Movie`."""
+  allMovies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Movie`."""
+    orderBy: [MoviesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MovieCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MovieFilter
+  ): MoviesConnection
+
+  """Reads and enables pagination through a set of `User`."""
+  allUsers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFilter
+  ): UsersConnection
+  commentById(id: UUID!): Comment
+  movieDirectorById(id: UUID!): MovieDirector
+  movieReviewById(id: UUID!): MovieReview
+  movieById(id: UUID!): Movie
+  userById(id: UUID!): User
+  currentUser: User
+
+  """Reads a single `Comment` using its globally unique `ID`."""
+  comment(
+    """The globally unique `ID` to be used in selecting a single `Comment`."""
+    nodeId: ID!
+  ): Comment
+
+  """Reads a single `MovieDirector` using its globally unique `ID`."""
+  movieDirector(
+    """
+    The globally unique `ID` to be used in selecting a single `MovieDirector`.
+    """
+    nodeId: ID!
+  ): MovieDirector
+
+  """Reads a single `MovieReview` using its globally unique `ID`."""
+  movieReview(
+    """
+    The globally unique `ID` to be used in selecting a single `MovieReview`.
+    """
+    nodeId: ID!
+  ): MovieReview
+
+  """Reads a single `Movie` using its globally unique `ID`."""
+  movie(
+    """The globally unique `ID` to be used in selecting a single `Movie`."""
+    nodeId: ID!
+  ): Movie
+
+  """Reads a single `User` using its globally unique `ID`."""
+  user(
+    """The globally unique `ID` to be used in selecting a single `User`."""
+    nodeId: ID!
+  ): User
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any
+  single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches
+  any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLikeInsensitive: String
+
+  """Equal to the specified value (case-insensitive)."""
+  equalToInsensitive: String
+
+  """Not equal to the specified value (case-insensitive)."""
+  notEqualToInsensitive: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """Included in the specified list (case-insensitive)."""
+  inInsensitive: [String!]
+
+  """Not included in the specified list (case-insensitive)."""
+  notInInsensitive: [String!]
+
+  """Less than the specified value (case-insensitive)."""
+  lessThanInsensitive: String
+
+  """Less than or equal to the specified value (case-insensitive)."""
+  lessThanOrEqualToInsensitive: String
+
+  """Greater than the specified value (case-insensitive)."""
+  greaterThanInsensitive: String
+
+  """Greater than or equal to the specified value (case-insensitive)."""
+  greaterThanOrEqualToInsensitive: String
+}
+
+"""All input for the `updateCommentById` mutation."""
+input UpdateCommentByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Comment` being updated.
+  """
+  commentPatch: CommentPatch!
+  id: UUID!
+}
+
+"""All input for the `updateComment` mutation."""
+input UpdateCommentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Comment` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Comment` being updated.
+  """
+  commentPatch: CommentPatch!
+}
+
+"""The output of our update `Comment` mutation."""
+type UpdateCommentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Comment` that was updated by this mutation."""
+  comment: Comment
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `Comment`."""
+  userByUserId: User
+
+  """Reads a single `MovieReview` that is related to this `Comment`."""
+  movieReviewByMovieReviewId: MovieReview
+
+  """An edge for our `Comment`. May be used by Relay 1."""
+  commentEdge(
+    """The method to use when ordering `Comment`."""
+    orderBy: [CommentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CommentsEdge
+}
+
+"""All input for the `updateMovieById` mutation."""
+input UpdateMovieByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Movie` being updated.
+  """
+  moviePatch: MoviePatch!
+  id: UUID!
+}
+
+"""All input for the `updateMovieDirectorById` mutation."""
+input UpdateMovieDirectorByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `MovieDirector` being updated.
+  """
+  movieDirectorPatch: MovieDirectorPatch!
+  id: UUID!
+}
+
+"""All input for the `updateMovieDirector` mutation."""
+input UpdateMovieDirectorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MovieDirector` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `MovieDirector` being updated.
+  """
+  movieDirectorPatch: MovieDirectorPatch!
+}
+
+"""The output of our update `MovieDirector` mutation."""
+type UpdateMovieDirectorPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MovieDirector` that was updated by this mutation."""
+  movieDirector: MovieDirector
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `MovieDirector`. May be used by Relay 1."""
+  movieDirectorEdge(
+    """The method to use when ordering `MovieDirector`."""
+    orderBy: [MovieDirectorsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MovieDirectorsEdge
+}
+
+"""All input for the `updateMovie` mutation."""
+input UpdateMovieInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Movie` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Movie` being updated.
+  """
+  moviePatch: MoviePatch!
+}
+
+"""The output of our update `Movie` mutation."""
+type UpdateMoviePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Movie` that was updated by this mutation."""
+  movie: Movie
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `MovieDirector` that is related to this `Movie`."""
+  movieDirectorByMovieDirectorId: MovieDirector
+
+  """Reads a single `User` that is related to this `Movie`."""
+  userByUserCreatorId: User
+
+  """An edge for our `Movie`. May be used by Relay 1."""
+  movieEdge(
+    """The method to use when ordering `Movie`."""
+    orderBy: [MoviesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MoviesEdge
+}
+
+"""All input for the `updateMovieReviewById` mutation."""
+input UpdateMovieReviewByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `MovieReview` being updated.
+  """
+  movieReviewPatch: MovieReviewPatch!
+  id: UUID!
+}
+
+"""All input for the `updateMovieReview` mutation."""
+input UpdateMovieReviewInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MovieReview` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `MovieReview` being updated.
+  """
+  movieReviewPatch: MovieReviewPatch!
+}
+
+"""The output of our update `MovieReview` mutation."""
+type UpdateMovieReviewPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MovieReview` that was updated by this mutation."""
+  movieReview: MovieReview
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Movie` that is related to this `MovieReview`."""
+  movieByMovieId: Movie
+
+  """Reads a single `User` that is related to this `MovieReview`."""
+  userByUserReviewerId: User
+
+  """An edge for our `MovieReview`. May be used by Relay 1."""
+  movieReviewEdge(
+    """The method to use when ordering `MovieReview`."""
+    orderBy: [MovieReviewsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MovieReviewsEdge
+}
+
+"""All input for the `updateUserById` mutation."""
+input UpdateUserByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  userPatch: UserPatch!
+  id: UUID!
+}
+
+"""All input for the `updateUser` mutation."""
+input UpdateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  userPatch: UserPatch!
+}
+
+"""The output of our update `User` mutation."""
+type UpdateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was updated by this mutation."""
+  user: User
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+type User implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  name: String!
+
+  """Reads and enables pagination through a set of `Movie`."""
+  moviesByUserCreatorId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Movie`."""
+    orderBy: [MoviesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MovieCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MovieFilter
+  ): MoviesConnection!
+
+  """Reads and enables pagination through a set of `MovieReview`."""
+  movieReviewsByUserReviewerId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MovieReview`."""
+    orderBy: [MovieReviewsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MovieReviewCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MovieReviewFilter
+  ): MovieReviewsConnection!
+
+  """Reads and enables pagination through a set of `Comment`."""
+  commentsByUserId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Comment`."""
+    orderBy: [CommentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CommentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CommentFilter
+  ): CommentsConnection!
+}
+
+"""
+A condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input UserCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+}
+
+"""
+A filter to be used against `User` object types. All fields are combined with a logical ‘and.’
+"""
+input UserFilter {
+  """Filter by the object’s `id` field."""
+  id: UUIDFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UserFilter!]
+
+  """Negates the expression."""
+  not: UserFilter
+}
+
+"""An input for mutations affecting `User`"""
+input UserInput {
+  id: UUID
+  name: String!
+}
+
+"""Represents an update to a `User`. Fields that are set will be updated."""
+input UserPatch {
+  id: UUID
+  name: String
+}
+
+"""A connection to a list of `User` values."""
+type UsersConnection {
+  """A list of `User` objects."""
+  nodes: [User]!
+
+  """
+  A list of edges which contains the `User` and cursor to aid in pagination.
+  """
+  edges: [UsersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `User` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `User` edge in the connection."""
+type UsersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `User` at the end of the edge."""
+  node: User
+}
+
+"""Methods to use when ordering `User`."""
+enum UsersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122).
+"""
+scalar UUID
+
+"""
+A filter to be used against UUID fields. All fields are combined with a logical ‘and.’
+"""
+input UUIDFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: UUID
+
+  """Not equal to the specified value."""
+  notEqualTo: UUID
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: UUID
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: UUID
+
+  """Included in the specified list."""
+  in: [UUID!]
+
+  """Not included in the specified list."""
+  notIn: [UUID!]
+
+  """Less than the specified value."""
+  lessThan: UUID
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: UUID
+
+  """Greater than the specified value."""
+  greaterThan: UUID
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: UUID
+}
+

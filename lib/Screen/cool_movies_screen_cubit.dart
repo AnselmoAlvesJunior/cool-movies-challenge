@@ -1,5 +1,7 @@
 
 import 'package:coolmovies/data/repository/cool_movies_repository.dart';
+import 'package:coolmovies/models/all_movies_adapter.dart';
+import 'package:coolmovies/models/all_movies_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -10,7 +12,7 @@ class CoolMoviesScreenCubit extends Cubit<CoolMoviesScreenState>{
   Future<void> fetchData() async {
     final coolMoviesQuery = await _coolMoviesRepository.fetchData();
     if(coolMoviesQuery != null){
-      emit(LoadedCoolMoviesScreenState(coolMoviesQuery.toString() ));
+      emit(LoadedCoolMoviesScreenState(coolMoviesQuery.allMovies!.nodes.map(AllMoviesAdapter.allMovies).toList()));   
     }
       return;
   }
@@ -20,7 +22,7 @@ class CoolMoviesScreenCubit extends Cubit<CoolMoviesScreenState>{
 abstract class CoolMoviesScreenState {}
 
 class LoadedCoolMoviesScreenState extends CoolMoviesScreenState {
-  final coolMoviesQuery;
+  final List<AllMoviesNodesModel> coolMoviesQuery;
   LoadedCoolMoviesScreenState(this.coolMoviesQuery);
 }
 class LoadingCoolMoviesScreenState extends CoolMoviesScreenState {}

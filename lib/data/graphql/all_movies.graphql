@@ -16,3 +16,33 @@ query AllMovies {
     }
   }
 }
+
+query AllMoviesDirectors {
+  allMovieDirectors{
+    nodes {
+      id
+      name
+      age
+    }
+  }
+}
+
+query FindMovieReviewById($reviewId: UUID!) {
+  movieReviewById(id: $reviewId) {
+    id
+    title
+    body
+    rating
+    movieId
+    userReviewerId
+    movieByMovieId {
+      id
+      title
+      releaseDate
+    }
+    userByUserReviewerId {
+      id
+      name
+    }
+  }
+}

@@ -21,11 +21,15 @@ class CoolMoviesScreen extends StatelessWidget {
                 body: ListView.separated(
                         itemCount:state.coolMoviesQuery.length,
                         itemBuilder: (final BuildContext context, final int index) {
-                          return GestureDetector( 
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => MovieScreen(allMoviesNodes: state.coolMoviesQuery[index],)));
+                          final movieDirectorId = state.coolMoviesQuery[index].movieDirectorId;
+                          final directorName = state.directorName.where((element) => element?.id ==movieDirectorId).first?.name ?? '';
+                          return GestureDetector(
+                            onTap: () async {
+                              Navigator.push( context, MaterialPageRoute(builder: (context) => MovieScreen(
+                                  allMoviesNodes: state.coolMoviesQuery[index],
+                                  directorName: directorName)));
                             },
-                            child: MoviesTile(allMoviesNodes: state.coolMoviesQuery[index],
+                            child: MoviesTile(allMoviesNodes: state.coolMoviesQuery[index], directorName: directorName,
                             ),
                           );
                         },
@@ -33,7 +37,7 @@ class CoolMoviesScreen extends StatelessWidget {
                       ),
                     );
               }
-                 return const CircularProgressIndicator();
+               return const Center(child: CircularProgressIndicator());
                  }
               ),
             );

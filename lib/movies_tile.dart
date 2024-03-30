@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class MoviesTile extends StatelessWidget {
   final AllMoviesNodesModel allMoviesNodes;
+  final String directorName;
   const MoviesTile({
     super.key,
     required this.allMoviesNodes,
+    required this.directorName,
     });
 
   @override
@@ -32,7 +34,7 @@ class MoviesTile extends StatelessWidget {
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(allMoviesNodes.userByCreatorIdModel.name,),
+                      Text(directorName,),
                       Text(allMoviesNodes.releaseDate,),
                     ],
                   ),

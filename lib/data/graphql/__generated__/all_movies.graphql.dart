@@ -2912,3 +2912,753 @@ class _CopyWithStubImpl$Query$FindMovieReviewById$movieReviewById$userByUserRevi
   }) =>
       _res;
 }
+
+class Query$AllMovieReviews {
+  Query$AllMovieReviews({
+    this.allMovieReviews,
+    this.$__typename = 'Query',
+  });
+
+  factory Query$AllMovieReviews.fromJson(Map<String, dynamic> json) {
+    final l$allMovieReviews = json['allMovieReviews'];
+    final l$$__typename = json['__typename'];
+    return Query$AllMovieReviews(
+      allMovieReviews: l$allMovieReviews == null
+          ? null
+          : Query$AllMovieReviews$allMovieReviews.fromJson(
+              (l$allMovieReviews as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$AllMovieReviews$allMovieReviews? allMovieReviews;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$allMovieReviews = allMovieReviews;
+    _resultData['allMovieReviews'] = l$allMovieReviews?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$allMovieReviews = allMovieReviews;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$allMovieReviews,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$AllMovieReviews) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$allMovieReviews = allMovieReviews;
+    final lOther$allMovieReviews = other.allMovieReviews;
+    if (l$allMovieReviews != lOther$allMovieReviews) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$AllMovieReviews on Query$AllMovieReviews {
+  CopyWith$Query$AllMovieReviews<Query$AllMovieReviews> get copyWith =>
+      CopyWith$Query$AllMovieReviews(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$AllMovieReviews<TRes> {
+  factory CopyWith$Query$AllMovieReviews(
+    Query$AllMovieReviews instance,
+    TRes Function(Query$AllMovieReviews) then,
+  ) = _CopyWithImpl$Query$AllMovieReviews;
+
+  factory CopyWith$Query$AllMovieReviews.stub(TRes res) =
+      _CopyWithStubImpl$Query$AllMovieReviews;
+
+  TRes call({
+    Query$AllMovieReviews$allMovieReviews? allMovieReviews,
+    String? $__typename,
+  });
+  CopyWith$Query$AllMovieReviews$allMovieReviews<TRes> get allMovieReviews;
+}
+
+class _CopyWithImpl$Query$AllMovieReviews<TRes>
+    implements CopyWith$Query$AllMovieReviews<TRes> {
+  _CopyWithImpl$Query$AllMovieReviews(
+    this._instance,
+    this._then,
+  );
+
+  final Query$AllMovieReviews _instance;
+
+  final TRes Function(Query$AllMovieReviews) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? allMovieReviews = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$AllMovieReviews(
+        allMovieReviews: allMovieReviews == _undefined
+            ? _instance.allMovieReviews
+            : (allMovieReviews as Query$AllMovieReviews$allMovieReviews?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Query$AllMovieReviews$allMovieReviews<TRes> get allMovieReviews {
+    final local$allMovieReviews = _instance.allMovieReviews;
+    return local$allMovieReviews == null
+        ? CopyWith$Query$AllMovieReviews$allMovieReviews.stub(_then(_instance))
+        : CopyWith$Query$AllMovieReviews$allMovieReviews(
+            local$allMovieReviews, (e) => call(allMovieReviews: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$AllMovieReviews<TRes>
+    implements CopyWith$Query$AllMovieReviews<TRes> {
+  _CopyWithStubImpl$Query$AllMovieReviews(this._res);
+
+  TRes _res;
+
+  call({
+    Query$AllMovieReviews$allMovieReviews? allMovieReviews,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Query$AllMovieReviews$allMovieReviews<TRes> get allMovieReviews =>
+      CopyWith$Query$AllMovieReviews$allMovieReviews.stub(_res);
+}
+
+const documentNodeQueryAllMovieReviews = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'AllMovieReviews'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'allMovieReviews'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'nodes'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'movieId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'userReviewerId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'title'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'body'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'rating'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$AllMovieReviews _parserFn$Query$AllMovieReviews(
+        Map<String, dynamic> data) =>
+    Query$AllMovieReviews.fromJson(data);
+typedef OnQueryComplete$Query$AllMovieReviews = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$AllMovieReviews?,
+);
+
+class Options$Query$AllMovieReviews
+    extends graphql.QueryOptions<Query$AllMovieReviews> {
+  Options$Query$AllMovieReviews({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$AllMovieReviews? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$AllMovieReviews? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null ? null : _parserFn$Query$AllMovieReviews(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryAllMovieReviews,
+          parserFn: _parserFn$Query$AllMovieReviews,
+        );
+
+  final OnQueryComplete$Query$AllMovieReviews? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$AllMovieReviews
+    extends graphql.WatchQueryOptions<Query$AllMovieReviews> {
+  WatchOptions$Query$AllMovieReviews({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$AllMovieReviews? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryAllMovieReviews,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$AllMovieReviews,
+        );
+}
+
+class FetchMoreOptions$Query$AllMovieReviews extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$AllMovieReviews(
+      {required graphql.UpdateQuery updateQuery})
+      : super(
+          updateQuery: updateQuery,
+          document: documentNodeQueryAllMovieReviews,
+        );
+}
+
+extension ClientExtension$Query$AllMovieReviews on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$AllMovieReviews>> query$AllMovieReviews(
+          [Options$Query$AllMovieReviews? options]) async =>
+      await this.query(options ?? Options$Query$AllMovieReviews());
+  graphql.ObservableQuery<Query$AllMovieReviews> watchQuery$AllMovieReviews(
+          [WatchOptions$Query$AllMovieReviews? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$AllMovieReviews());
+  void writeQuery$AllMovieReviews({
+    required Query$AllMovieReviews data,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+            operation:
+                graphql.Operation(document: documentNodeQueryAllMovieReviews)),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$AllMovieReviews? readQuery$AllMovieReviews({bool optimistic = true}) {
+    final result = this.readQuery(
+      graphql.Request(
+          operation:
+              graphql.Operation(document: documentNodeQueryAllMovieReviews)),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$AllMovieReviews.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$AllMovieReviews> useQuery$AllMovieReviews(
+        [Options$Query$AllMovieReviews? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$AllMovieReviews());
+graphql.ObservableQuery<Query$AllMovieReviews> useWatchQuery$AllMovieReviews(
+        [WatchOptions$Query$AllMovieReviews? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$AllMovieReviews());
+
+class Query$AllMovieReviews$Widget
+    extends graphql_flutter.Query<Query$AllMovieReviews> {
+  Query$AllMovieReviews$Widget({
+    widgets.Key? key,
+    Options$Query$AllMovieReviews? options,
+    required graphql_flutter.QueryBuilder<Query$AllMovieReviews> builder,
+  }) : super(
+          key: key,
+          options: options ?? Options$Query$AllMovieReviews(),
+          builder: builder,
+        );
+}
+
+class Query$AllMovieReviews$allMovieReviews {
+  Query$AllMovieReviews$allMovieReviews({
+    required this.nodes,
+    this.$__typename = 'MovieReviewsConnection',
+  });
+
+  factory Query$AllMovieReviews$allMovieReviews.fromJson(
+      Map<String, dynamic> json) {
+    final l$nodes = json['nodes'];
+    final l$$__typename = json['__typename'];
+    return Query$AllMovieReviews$allMovieReviews(
+      nodes: (l$nodes as List<dynamic>)
+          .map((e) => e == null
+              ? null
+              : Query$AllMovieReviews$allMovieReviews$nodes.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Query$AllMovieReviews$allMovieReviews$nodes?> nodes;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$nodes = nodes;
+    _resultData['nodes'] = l$nodes.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$nodes = nodes;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$nodes.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$AllMovieReviews$allMovieReviews) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$nodes = nodes;
+    final lOther$nodes = other.nodes;
+    if (l$nodes.length != lOther$nodes.length) {
+      return false;
+    }
+    for (int i = 0; i < l$nodes.length; i++) {
+      final l$nodes$entry = l$nodes[i];
+      final lOther$nodes$entry = lOther$nodes[i];
+      if (l$nodes$entry != lOther$nodes$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$AllMovieReviews$allMovieReviews
+    on Query$AllMovieReviews$allMovieReviews {
+  CopyWith$Query$AllMovieReviews$allMovieReviews<
+          Query$AllMovieReviews$allMovieReviews>
+      get copyWith => CopyWith$Query$AllMovieReviews$allMovieReviews(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$AllMovieReviews$allMovieReviews<TRes> {
+  factory CopyWith$Query$AllMovieReviews$allMovieReviews(
+    Query$AllMovieReviews$allMovieReviews instance,
+    TRes Function(Query$AllMovieReviews$allMovieReviews) then,
+  ) = _CopyWithImpl$Query$AllMovieReviews$allMovieReviews;
+
+  factory CopyWith$Query$AllMovieReviews$allMovieReviews.stub(TRes res) =
+      _CopyWithStubImpl$Query$AllMovieReviews$allMovieReviews;
+
+  TRes call({
+    List<Query$AllMovieReviews$allMovieReviews$nodes?>? nodes,
+    String? $__typename,
+  });
+  TRes nodes(
+      Iterable<Query$AllMovieReviews$allMovieReviews$nodes?> Function(
+              Iterable<
+                  CopyWith$Query$AllMovieReviews$allMovieReviews$nodes<
+                      Query$AllMovieReviews$allMovieReviews$nodes>?>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$AllMovieReviews$allMovieReviews<TRes>
+    implements CopyWith$Query$AllMovieReviews$allMovieReviews<TRes> {
+  _CopyWithImpl$Query$AllMovieReviews$allMovieReviews(
+    this._instance,
+    this._then,
+  );
+
+  final Query$AllMovieReviews$allMovieReviews _instance;
+
+  final TRes Function(Query$AllMovieReviews$allMovieReviews) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? nodes = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$AllMovieReviews$allMovieReviews(
+        nodes: nodes == _undefined || nodes == null
+            ? _instance.nodes
+            : (nodes as List<Query$AllMovieReviews$allMovieReviews$nodes?>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  TRes nodes(
+          Iterable<Query$AllMovieReviews$allMovieReviews$nodes?> Function(
+                  Iterable<
+                      CopyWith$Query$AllMovieReviews$allMovieReviews$nodes<
+                          Query$AllMovieReviews$allMovieReviews$nodes>?>)
+              _fn) =>
+      call(
+          nodes: _fn(_instance.nodes.map((e) => e == null
+              ? null
+              : CopyWith$Query$AllMovieReviews$allMovieReviews$nodes(
+                  e,
+                  (i) => i,
+                ))).toList());
+}
+
+class _CopyWithStubImpl$Query$AllMovieReviews$allMovieReviews<TRes>
+    implements CopyWith$Query$AllMovieReviews$allMovieReviews<TRes> {
+  _CopyWithStubImpl$Query$AllMovieReviews$allMovieReviews(this._res);
+
+  TRes _res;
+
+  call({
+    List<Query$AllMovieReviews$allMovieReviews$nodes?>? nodes,
+    String? $__typename,
+  }) =>
+      _res;
+
+  nodes(_fn) => _res;
+}
+
+class Query$AllMovieReviews$allMovieReviews$nodes {
+  Query$AllMovieReviews$allMovieReviews$nodes({
+    required this.id,
+    required this.movieId,
+    required this.userReviewerId,
+    required this.title,
+    this.body,
+    this.rating,
+    this.$__typename = 'MovieReview',
+  });
+
+  factory Query$AllMovieReviews$allMovieReviews$nodes.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$movieId = json['movieId'];
+    final l$userReviewerId = json['userReviewerId'];
+    final l$title = json['title'];
+    final l$body = json['body'];
+    final l$rating = json['rating'];
+    final l$$__typename = json['__typename'];
+    return Query$AllMovieReviews$allMovieReviews$nodes(
+      id: (l$id as String),
+      movieId: (l$movieId as String),
+      userReviewerId: (l$userReviewerId as String),
+      title: (l$title as String),
+      body: (l$body as String?),
+      rating: (l$rating as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String movieId;
+
+  final String userReviewerId;
+
+  final String title;
+
+  final String? body;
+
+  final int? rating;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$movieId = movieId;
+    _resultData['movieId'] = l$movieId;
+    final l$userReviewerId = userReviewerId;
+    _resultData['userReviewerId'] = l$userReviewerId;
+    final l$title = title;
+    _resultData['title'] = l$title;
+    final l$body = body;
+    _resultData['body'] = l$body;
+    final l$rating = rating;
+    _resultData['rating'] = l$rating;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$movieId = movieId;
+    final l$userReviewerId = userReviewerId;
+    final l$title = title;
+    final l$body = body;
+    final l$rating = rating;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$movieId,
+      l$userReviewerId,
+      l$title,
+      l$body,
+      l$rating,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$AllMovieReviews$allMovieReviews$nodes) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$movieId = movieId;
+    final lOther$movieId = other.movieId;
+    if (l$movieId != lOther$movieId) {
+      return false;
+    }
+    final l$userReviewerId = userReviewerId;
+    final lOther$userReviewerId = other.userReviewerId;
+    if (l$userReviewerId != lOther$userReviewerId) {
+      return false;
+    }
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) {
+      return false;
+    }
+    final l$body = body;
+    final lOther$body = other.body;
+    if (l$body != lOther$body) {
+      return false;
+    }
+    final l$rating = rating;
+    final lOther$rating = other.rating;
+    if (l$rating != lOther$rating) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$AllMovieReviews$allMovieReviews$nodes
+    on Query$AllMovieReviews$allMovieReviews$nodes {
+  CopyWith$Query$AllMovieReviews$allMovieReviews$nodes<
+          Query$AllMovieReviews$allMovieReviews$nodes>
+      get copyWith => CopyWith$Query$AllMovieReviews$allMovieReviews$nodes(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$AllMovieReviews$allMovieReviews$nodes<TRes> {
+  factory CopyWith$Query$AllMovieReviews$allMovieReviews$nodes(
+    Query$AllMovieReviews$allMovieReviews$nodes instance,
+    TRes Function(Query$AllMovieReviews$allMovieReviews$nodes) then,
+  ) = _CopyWithImpl$Query$AllMovieReviews$allMovieReviews$nodes;
+
+  factory CopyWith$Query$AllMovieReviews$allMovieReviews$nodes.stub(TRes res) =
+      _CopyWithStubImpl$Query$AllMovieReviews$allMovieReviews$nodes;
+
+  TRes call({
+    String? id,
+    String? movieId,
+    String? userReviewerId,
+    String? title,
+    String? body,
+    int? rating,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$AllMovieReviews$allMovieReviews$nodes<TRes>
+    implements CopyWith$Query$AllMovieReviews$allMovieReviews$nodes<TRes> {
+  _CopyWithImpl$Query$AllMovieReviews$allMovieReviews$nodes(
+    this._instance,
+    this._then,
+  );
+
+  final Query$AllMovieReviews$allMovieReviews$nodes _instance;
+
+  final TRes Function(Query$AllMovieReviews$allMovieReviews$nodes) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? movieId = _undefined,
+    Object? userReviewerId = _undefined,
+    Object? title = _undefined,
+    Object? body = _undefined,
+    Object? rating = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$AllMovieReviews$allMovieReviews$nodes(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        movieId: movieId == _undefined || movieId == null
+            ? _instance.movieId
+            : (movieId as String),
+        userReviewerId: userReviewerId == _undefined || userReviewerId == null
+            ? _instance.userReviewerId
+            : (userReviewerId as String),
+        title: title == _undefined || title == null
+            ? _instance.title
+            : (title as String),
+        body: body == _undefined ? _instance.body : (body as String?),
+        rating: rating == _undefined ? _instance.rating : (rating as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$AllMovieReviews$allMovieReviews$nodes<TRes>
+    implements CopyWith$Query$AllMovieReviews$allMovieReviews$nodes<TRes> {
+  _CopyWithStubImpl$Query$AllMovieReviews$allMovieReviews$nodes(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? movieId,
+    String? userReviewerId,
+    String? title,
+    String? body,
+    int? rating,
+    String? $__typename,
+  }) =>
+      _res;
+}

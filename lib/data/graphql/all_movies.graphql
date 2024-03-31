@@ -46,3 +46,17 @@ query FindMovieReviewById($reviewId: UUID!) {
     }
   }
 }
+
+query AllMovieReviews {
+  allMovieReviews {
+    nodes {
+      id
+      movieId
+      userReviewerId
+      title
+      body
+      rating
+    }
+  }
+}
+

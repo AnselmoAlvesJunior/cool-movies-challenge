@@ -1,10 +1,10 @@
 import 'package:coolmovies/models/all_movies_model.dart';
 import 'package:flutter/material.dart';
 
-class MoviesTile extends StatelessWidget {
+class MoviesTileComponent extends StatelessWidget {
   final AllMoviesNodesModel allMoviesNodes;
   final String directorName;
-  const MoviesTile({
+  const MoviesTileComponent({
     super.key,
     required this.allMoviesNodes,
     required this.directorName,

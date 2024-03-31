@@ -18,15 +18,11 @@ class GraphQlClientMovies {
       defaultPolicies: DefaultPolicies(
         query: Policies(
           fetch: FetchPolicy.networkOnly,
+          error: ErrorPolicy.all
         ),
         mutate: Policies(
           fetch: FetchPolicy.networkOnly,
-        ),
-        watchMutation: Policies(
-          fetch: FetchPolicy.networkOnly,
-        ),
-        subscribe: Policies(
-          fetch: FetchPolicy.networkOnly,
+          error: ErrorPolicy.all
         ),
       )
     );

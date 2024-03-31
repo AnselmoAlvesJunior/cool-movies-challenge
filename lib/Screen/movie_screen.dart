@@ -84,6 +84,12 @@ class MovieScreen extends StatelessWidget {
                                               print('ratingupdate: $rating');
                                             },
                                           ),
+                                          TextButton(
+                                            child: const Text('Delete Review'),
+                                            onPressed: (){
+                                              context.read<MovieScreenCubit>().deleteMovieReview(state.allMoviesReview[index]!.id);
+                                            },
+                                          ),
                                         ]
                                       );
                                     },

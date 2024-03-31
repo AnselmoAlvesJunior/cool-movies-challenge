@@ -114,4 +114,25 @@ class CoolMoviesRepository {
 
     return result.parsedData;
   }
+
+  Future<Mutation$DeleteMovieReview?> removeMovieReviewById(final String idMovieReview) async {
+    final result = await GetIt.I<GraphQlClientMovies>().client.mutate$DeleteMovieReview(Options$Mutation$DeleteMovieReview(
+        variables: Variables$Mutation$DeleteMovieReview(
+            input: Input$DeleteMovieReviewByIdInput.fromJson({'id': idMovieReview}),
+        )
+      )
+    );
+
+    if (result.hasException) {
+      print(result.exception.toString());
+      throw Exception();
+    }
+
+    if (result.parsedData == null) {
+      throw Exception("Data is null");
+    }
+    print(result.parsedData);
+
+    return result.parsedData;
+  }
 }

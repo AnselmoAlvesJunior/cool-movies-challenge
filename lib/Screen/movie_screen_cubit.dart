@@ -51,6 +51,10 @@ class MovieScreenCubit extends Cubit<MovieScreenState>{
         );
     }
   }
+
+  Future<void> deleteMovieReview(final String idMovieReview) async {
+    _coolMoviesRepository.removeMovieReviewById(idMovieReview);
+  }
 }
 
 abstract class MovieScreenState {}

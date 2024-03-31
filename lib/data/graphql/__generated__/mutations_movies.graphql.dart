@@ -1637,3 +1637,1009 @@ class _CopyWithStubImpl$Mutation$CreateMovieReview$createMovieReview$movieReview
 
   call({String? $__typename}) => _res;
 }
+
+class Variables$Mutation$DeleteMovieReview {
+  factory Variables$Mutation$DeleteMovieReview(
+          {required Input$DeleteMovieReviewByIdInput input}) =>
+      Variables$Mutation$DeleteMovieReview._({
+        r'input': input,
+      });
+
+  Variables$Mutation$DeleteMovieReview._(this._$data);
+
+  factory Variables$Mutation$DeleteMovieReview.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$input = data['input'];
+    result$data['input'] = Input$DeleteMovieReviewByIdInput.fromJson(
+        (l$input as Map<String, dynamic>));
+    return Variables$Mutation$DeleteMovieReview._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$DeleteMovieReviewByIdInput get input =>
+      (_$data['input'] as Input$DeleteMovieReviewByIdInput);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$DeleteMovieReview<
+          Variables$Mutation$DeleteMovieReview>
+      get copyWith => CopyWith$Variables$Mutation$DeleteMovieReview(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$DeleteMovieReview) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$input = input;
+    return Object.hashAll([l$input]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$DeleteMovieReview<TRes> {
+  factory CopyWith$Variables$Mutation$DeleteMovieReview(
+    Variables$Mutation$DeleteMovieReview instance,
+    TRes Function(Variables$Mutation$DeleteMovieReview) then,
+  ) = _CopyWithImpl$Variables$Mutation$DeleteMovieReview;
+
+  factory CopyWith$Variables$Mutation$DeleteMovieReview.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$DeleteMovieReview;
+
+  TRes call({Input$DeleteMovieReviewByIdInput? input});
+}
+
+class _CopyWithImpl$Variables$Mutation$DeleteMovieReview<TRes>
+    implements CopyWith$Variables$Mutation$DeleteMovieReview<TRes> {
+  _CopyWithImpl$Variables$Mutation$DeleteMovieReview(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$DeleteMovieReview _instance;
+
+  final TRes Function(Variables$Mutation$DeleteMovieReview) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? input = _undefined}) =>
+      _then(Variables$Mutation$DeleteMovieReview._({
+        ..._instance._$data,
+        if (input != _undefined && input != null)
+          'input': (input as Input$DeleteMovieReviewByIdInput),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$DeleteMovieReview<TRes>
+    implements CopyWith$Variables$Mutation$DeleteMovieReview<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$DeleteMovieReview(this._res);
+
+  TRes _res;
+
+  call({Input$DeleteMovieReviewByIdInput? input}) => _res;
+}
+
+class Mutation$DeleteMovieReview {
+  Mutation$DeleteMovieReview({
+    this.deleteMovieReviewById,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$DeleteMovieReview.fromJson(Map<String, dynamic> json) {
+    final l$deleteMovieReviewById = json['deleteMovieReviewById'];
+    final l$$__typename = json['__typename'];
+    return Mutation$DeleteMovieReview(
+      deleteMovieReviewById: l$deleteMovieReviewById == null
+          ? null
+          : Mutation$DeleteMovieReview$deleteMovieReviewById.fromJson(
+              (l$deleteMovieReviewById as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$DeleteMovieReview$deleteMovieReviewById? deleteMovieReviewById;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$deleteMovieReviewById = deleteMovieReviewById;
+    _resultData['deleteMovieReviewById'] = l$deleteMovieReviewById?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$deleteMovieReviewById = deleteMovieReviewById;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$deleteMovieReviewById,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$DeleteMovieReview) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$deleteMovieReviewById = deleteMovieReviewById;
+    final lOther$deleteMovieReviewById = other.deleteMovieReviewById;
+    if (l$deleteMovieReviewById != lOther$deleteMovieReviewById) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$DeleteMovieReview
+    on Mutation$DeleteMovieReview {
+  CopyWith$Mutation$DeleteMovieReview<Mutation$DeleteMovieReview>
+      get copyWith => CopyWith$Mutation$DeleteMovieReview(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$DeleteMovieReview<TRes> {
+  factory CopyWith$Mutation$DeleteMovieReview(
+    Mutation$DeleteMovieReview instance,
+    TRes Function(Mutation$DeleteMovieReview) then,
+  ) = _CopyWithImpl$Mutation$DeleteMovieReview;
+
+  factory CopyWith$Mutation$DeleteMovieReview.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteMovieReview;
+
+  TRes call({
+    Mutation$DeleteMovieReview$deleteMovieReviewById? deleteMovieReviewById,
+    String? $__typename,
+  });
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes>
+      get deleteMovieReviewById;
+}
+
+class _CopyWithImpl$Mutation$DeleteMovieReview<TRes>
+    implements CopyWith$Mutation$DeleteMovieReview<TRes> {
+  _CopyWithImpl$Mutation$DeleteMovieReview(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$DeleteMovieReview _instance;
+
+  final TRes Function(Mutation$DeleteMovieReview) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? deleteMovieReviewById = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$DeleteMovieReview(
+        deleteMovieReviewById: deleteMovieReviewById == _undefined
+            ? _instance.deleteMovieReviewById
+            : (deleteMovieReviewById
+                as Mutation$DeleteMovieReview$deleteMovieReviewById?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes>
+      get deleteMovieReviewById {
+    final local$deleteMovieReviewById = _instance.deleteMovieReviewById;
+    return local$deleteMovieReviewById == null
+        ? CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById.stub(
+            _then(_instance))
+        : CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById(
+            local$deleteMovieReviewById, (e) => call(deleteMovieReviewById: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$DeleteMovieReview<TRes>
+    implements CopyWith$Mutation$DeleteMovieReview<TRes> {
+  _CopyWithStubImpl$Mutation$DeleteMovieReview(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$DeleteMovieReview$deleteMovieReviewById? deleteMovieReviewById,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes>
+      get deleteMovieReviewById =>
+          CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById.stub(_res);
+}
+
+const documentNodeMutationDeleteMovieReview = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'DeleteMovieReview'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'DeleteMovieReviewByIdInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'deleteMovieReviewById'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'clientMutationId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'movieReview'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'movieId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'userReviewerId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'title'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'body'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'rating'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'deletedMovieReviewId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$DeleteMovieReview _parserFn$Mutation$DeleteMovieReview(
+        Map<String, dynamic> data) =>
+    Mutation$DeleteMovieReview.fromJson(data);
+typedef OnMutationCompleted$Mutation$DeleteMovieReview = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Mutation$DeleteMovieReview?,
+);
+
+class Options$Mutation$DeleteMovieReview
+    extends graphql.MutationOptions<Mutation$DeleteMovieReview> {
+  Options$Mutation$DeleteMovieReview({
+    String? operationName,
+    required Variables$Mutation$DeleteMovieReview variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteMovieReview? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$DeleteMovieReview? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteMovieReview>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$DeleteMovieReview(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationDeleteMovieReview,
+          parserFn: _parserFn$Mutation$DeleteMovieReview,
+        );
+
+  final OnMutationCompleted$Mutation$DeleteMovieReview? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$DeleteMovieReview
+    extends graphql.WatchQueryOptions<Mutation$DeleteMovieReview> {
+  WatchOptions$Mutation$DeleteMovieReview({
+    String? operationName,
+    required Variables$Mutation$DeleteMovieReview variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteMovieReview? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationDeleteMovieReview,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$DeleteMovieReview,
+        );
+}
+
+extension ClientExtension$Mutation$DeleteMovieReview on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$DeleteMovieReview>>
+      mutate$DeleteMovieReview(
+              Options$Mutation$DeleteMovieReview options) async =>
+          await this.mutate(options);
+  graphql.ObservableQuery<Mutation$DeleteMovieReview>
+      watchMutation$DeleteMovieReview(
+              WatchOptions$Mutation$DeleteMovieReview options) =>
+          this.watchMutation(options);
+}
+
+class Mutation$DeleteMovieReview$HookResult {
+  Mutation$DeleteMovieReview$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$DeleteMovieReview runMutation;
+
+  final graphql.QueryResult<Mutation$DeleteMovieReview> result;
+}
+
+Mutation$DeleteMovieReview$HookResult useMutation$DeleteMovieReview(
+    [WidgetOptions$Mutation$DeleteMovieReview? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$DeleteMovieReview());
+  return Mutation$DeleteMovieReview$HookResult(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$DeleteMovieReview>
+    useWatchMutation$DeleteMovieReview(
+            WatchOptions$Mutation$DeleteMovieReview options) =>
+        graphql_flutter.useWatchMutation(options);
+
+class WidgetOptions$Mutation$DeleteMovieReview
+    extends graphql.MutationOptions<Mutation$DeleteMovieReview> {
+  WidgetOptions$Mutation$DeleteMovieReview({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteMovieReview? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$DeleteMovieReview? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteMovieReview>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$DeleteMovieReview(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationDeleteMovieReview,
+          parserFn: _parserFn$Mutation$DeleteMovieReview,
+        );
+
+  final OnMutationCompleted$Mutation$DeleteMovieReview? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$DeleteMovieReview
+    = graphql.MultiSourceResult<Mutation$DeleteMovieReview> Function(
+  Variables$Mutation$DeleteMovieReview, {
+  Object? optimisticResult,
+  Mutation$DeleteMovieReview? typedOptimisticResult,
+});
+typedef Builder$Mutation$DeleteMovieReview = widgets.Widget Function(
+  RunMutation$Mutation$DeleteMovieReview,
+  graphql.QueryResult<Mutation$DeleteMovieReview>?,
+);
+
+class Mutation$DeleteMovieReview$Widget
+    extends graphql_flutter.Mutation<Mutation$DeleteMovieReview> {
+  Mutation$DeleteMovieReview$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$DeleteMovieReview? options,
+    required Builder$Mutation$DeleteMovieReview builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$DeleteMovieReview(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            (
+              variables, {
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$DeleteMovieReview$deleteMovieReviewById {
+  Mutation$DeleteMovieReview$deleteMovieReviewById({
+    this.clientMutationId,
+    this.movieReview,
+    this.deletedMovieReviewId,
+    this.$__typename = 'DeleteMovieReviewPayload',
+  });
+
+  factory Mutation$DeleteMovieReview$deleteMovieReviewById.fromJson(
+      Map<String, dynamic> json) {
+    final l$clientMutationId = json['clientMutationId'];
+    final l$movieReview = json['movieReview'];
+    final l$deletedMovieReviewId = json['deletedMovieReviewId'];
+    final l$$__typename = json['__typename'];
+    return Mutation$DeleteMovieReview$deleteMovieReviewById(
+      clientMutationId: (l$clientMutationId as String?),
+      movieReview: l$movieReview == null
+          ? null
+          : Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview
+              .fromJson((l$movieReview as Map<String, dynamic>)),
+      deletedMovieReviewId: (l$deletedMovieReviewId as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? clientMutationId;
+
+  final Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview?
+      movieReview;
+
+  final String? deletedMovieReviewId;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$clientMutationId = clientMutationId;
+    _resultData['clientMutationId'] = l$clientMutationId;
+    final l$movieReview = movieReview;
+    _resultData['movieReview'] = l$movieReview?.toJson();
+    final l$deletedMovieReviewId = deletedMovieReviewId;
+    _resultData['deletedMovieReviewId'] = l$deletedMovieReviewId;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$clientMutationId = clientMutationId;
+    final l$movieReview = movieReview;
+    final l$deletedMovieReviewId = deletedMovieReviewId;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$clientMutationId,
+      l$movieReview,
+      l$deletedMovieReviewId,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$DeleteMovieReview$deleteMovieReviewById) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$clientMutationId = clientMutationId;
+    final lOther$clientMutationId = other.clientMutationId;
+    if (l$clientMutationId != lOther$clientMutationId) {
+      return false;
+    }
+    final l$movieReview = movieReview;
+    final lOther$movieReview = other.movieReview;
+    if (l$movieReview != lOther$movieReview) {
+      return false;
+    }
+    final l$deletedMovieReviewId = deletedMovieReviewId;
+    final lOther$deletedMovieReviewId = other.deletedMovieReviewId;
+    if (l$deletedMovieReviewId != lOther$deletedMovieReviewId) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$DeleteMovieReview$deleteMovieReviewById
+    on Mutation$DeleteMovieReview$deleteMovieReviewById {
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById<
+          Mutation$DeleteMovieReview$deleteMovieReviewById>
+      get copyWith => CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes> {
+  factory CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById(
+    Mutation$DeleteMovieReview$deleteMovieReviewById instance,
+    TRes Function(Mutation$DeleteMovieReview$deleteMovieReviewById) then,
+  ) = _CopyWithImpl$Mutation$DeleteMovieReview$deleteMovieReviewById;
+
+  factory CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteMovieReview$deleteMovieReviewById;
+
+  TRes call({
+    String? clientMutationId,
+    Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview? movieReview,
+    String? deletedMovieReviewId,
+    String? $__typename,
+  });
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<TRes>
+      get movieReview;
+}
+
+class _CopyWithImpl$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes>
+    implements CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes> {
+  _CopyWithImpl$Mutation$DeleteMovieReview$deleteMovieReviewById(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$DeleteMovieReview$deleteMovieReviewById _instance;
+
+  final TRes Function(Mutation$DeleteMovieReview$deleteMovieReviewById) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? clientMutationId = _undefined,
+    Object? movieReview = _undefined,
+    Object? deletedMovieReviewId = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$DeleteMovieReview$deleteMovieReviewById(
+        clientMutationId: clientMutationId == _undefined
+            ? _instance.clientMutationId
+            : (clientMutationId as String?),
+        movieReview: movieReview == _undefined
+            ? _instance.movieReview
+            : (movieReview
+                as Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview?),
+        deletedMovieReviewId: deletedMovieReviewId == _undefined
+            ? _instance.deletedMovieReviewId
+            : (deletedMovieReviewId as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<TRes>
+      get movieReview {
+    final local$movieReview = _instance.movieReview;
+    return local$movieReview == null
+        ? CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview
+            .stub(_then(_instance))
+        : CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview(
+            local$movieReview, (e) => call(movieReview: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes>
+    implements CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById<TRes> {
+  _CopyWithStubImpl$Mutation$DeleteMovieReview$deleteMovieReviewById(this._res);
+
+  TRes _res;
+
+  call({
+    String? clientMutationId,
+    Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview? movieReview,
+    String? deletedMovieReviewId,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<TRes>
+      get movieReview =>
+          CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview
+              .stub(_res);
+}
+
+class Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview {
+  Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview({
+    required this.id,
+    required this.movieId,
+    required this.userReviewerId,
+    required this.title,
+    this.body,
+    this.rating,
+    this.$__typename = 'MovieReview',
+  });
+
+  factory Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$movieId = json['movieId'];
+    final l$userReviewerId = json['userReviewerId'];
+    final l$title = json['title'];
+    final l$body = json['body'];
+    final l$rating = json['rating'];
+    final l$$__typename = json['__typename'];
+    return Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview(
+      id: (l$id as String),
+      movieId: (l$movieId as String),
+      userReviewerId: (l$userReviewerId as String),
+      title: (l$title as String),
+      body: (l$body as String?),
+      rating: (l$rating as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String movieId;
+
+  final String userReviewerId;
+
+  final String title;
+
+  final String? body;
+
+  final int? rating;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$movieId = movieId;
+    _resultData['movieId'] = l$movieId;
+    final l$userReviewerId = userReviewerId;
+    _resultData['userReviewerId'] = l$userReviewerId;
+    final l$title = title;
+    _resultData['title'] = l$title;
+    final l$body = body;
+    _resultData['body'] = l$body;
+    final l$rating = rating;
+    _resultData['rating'] = l$rating;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$movieId = movieId;
+    final l$userReviewerId = userReviewerId;
+    final l$title = title;
+    final l$body = body;
+    final l$rating = rating;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$movieId,
+      l$userReviewerId,
+      l$title,
+      l$body,
+      l$rating,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$movieId = movieId;
+    final lOther$movieId = other.movieId;
+    if (l$movieId != lOther$movieId) {
+      return false;
+    }
+    final l$userReviewerId = userReviewerId;
+    final lOther$userReviewerId = other.userReviewerId;
+    if (l$userReviewerId != lOther$userReviewerId) {
+      return false;
+    }
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) {
+      return false;
+    }
+    final l$body = body;
+    final lOther$body = other.body;
+    if (l$body != lOther$body) {
+      return false;
+    }
+    final l$rating = rating;
+    final lOther$rating = other.rating;
+    if (l$rating != lOther$rating) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview
+    on Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview {
+  CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<
+          Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview>
+      get copyWith =>
+          CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<
+    TRes> {
+  factory CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview(
+    Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview instance,
+    TRes Function(Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview)
+        then,
+  ) = _CopyWithImpl$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview;
+
+  factory CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview;
+
+  TRes call({
+    String? id,
+    String? movieId,
+    String? userReviewerId,
+    String? title,
+    String? body,
+    int? rating,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<
+        TRes>
+    implements
+        CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<
+            TRes> {
+  _CopyWithImpl$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview _instance;
+
+  final TRes Function(
+      Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? movieId = _undefined,
+    Object? userReviewerId = _undefined,
+    Object? title = _undefined,
+    Object? body = _undefined,
+    Object? rating = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        movieId: movieId == _undefined || movieId == null
+            ? _instance.movieId
+            : (movieId as String),
+        userReviewerId: userReviewerId == _undefined || userReviewerId == null
+            ? _instance.userReviewerId
+            : (userReviewerId as String),
+        title: title == _undefined || title == null
+            ? _instance.title
+            : (title as String),
+        body: body == _undefined ? _instance.body : (body as String?),
+        rating: rating == _undefined ? _instance.rating : (rating as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<
+        TRes>
+    implements
+        CopyWith$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview<
+            TRes> {
+  _CopyWithStubImpl$Mutation$DeleteMovieReview$deleteMovieReviewById$movieReview(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? movieId,
+    String? userReviewerId,
+    String? title,
+    String? body,
+    int? rating,
+    String? $__typename,
+  }) =>
+      _res;
+}

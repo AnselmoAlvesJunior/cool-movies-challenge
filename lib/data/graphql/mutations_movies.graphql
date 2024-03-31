@@ -22,3 +22,18 @@ mutation CreateMovieReview($input: CreateMovieReviewInput!) {
         }
     }
 }
+
+mutation DeleteMovieReview($input: DeleteMovieReviewByIdInput!) {
+  deleteMovieReviewById(input: $input) {
+    clientMutationId
+    movieReview {
+      id
+      movieId
+      userReviewerId
+      title
+      body
+      rating
+    }
+    deletedMovieReviewId
+  }
+}

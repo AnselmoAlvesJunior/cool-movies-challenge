@@ -18,7 +18,16 @@ class GraphQlClientMovies {
       defaultPolicies: DefaultPolicies(
         query: Policies(
           fetch: FetchPolicy.networkOnly,
-        )
+        ),
+        mutate: Policies(
+          fetch: FetchPolicy.networkOnly,
+        ),
+        watchMutation: Policies(
+          fetch: FetchPolicy.networkOnly,
+        ),
+        subscribe: Policies(
+          fetch: FetchPolicy.networkOnly,
+        ),
       )
     );
     _clientNotifier = ValueNotifier(_client);

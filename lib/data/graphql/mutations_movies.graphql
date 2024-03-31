@@ -1,0 +1,24 @@
+mutation CreateMovieReview($input: CreateMovieReviewInput!) {
+    createMovieReview(input: $input) {
+        clientMutationId
+        movieReview {
+            id
+            title
+            body
+            rating
+            movieId
+            userReviewerId
+        }
+        movieByMovieId {
+            id
+            title
+            releaseDate
+        }
+        userByUserReviewerId {
+            id
+            name
+        }
+        movieReviewEdge {
+        }
+    }
+}

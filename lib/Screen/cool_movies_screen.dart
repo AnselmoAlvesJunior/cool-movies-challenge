@@ -1,6 +1,6 @@
 import 'package:coolmovies/Screen/cool_movies_screen_cubit.dart';
 import 'package:coolmovies/Screen/movie_screen.dart';
-import 'package:coolmovies/movies_tile.dart';
+import 'package:coolmovies/component/movies_tile_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,7 +29,7 @@ class CoolMoviesScreen extends StatelessWidget {
                                   allMoviesNodes: state.coolMoviesQuery[index],
                                   directorName: directorName)));
                             },
-                            child: MoviesTile(allMoviesNodes: state.coolMoviesQuery[index], directorName: directorName,
+                            child: MoviesTileComponent(allMoviesNodes: state.coolMoviesQuery[index], directorName: directorName,
                             ),
                           );
                         },

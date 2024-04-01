@@ -31,22 +31,20 @@ class MovieScreenCubit extends Cubit<MovieScreenState>{
    }
   }
 
-
   Future<void> createMovieReview(
       final String title,
       final String body,
-      final int rating,
+      final String rating,
       ) async {
     final movieReview = await _movieReview();
     final allMoviesReview = await _allMovieReviews();
     final getUserReviewerId = allMoviesReview?.allMovieReviews?.nodes.first!.userReviewerId;
     if(movieReview!= null && getUserReviewerId!= null){
-      print('userReviewId ${getUserReviewerId}');
       _coolMoviesRepository.setMovieReview(
         movieId,
         title,
         body,
-        rating,
+        int.parse(rating),
         getUserReviewerId,
         );
     }
@@ -54,6 +52,8 @@ class MovieScreenCubit extends Cubit<MovieScreenState>{
 
   Future<void> deleteMovieReview(final String idMovieReview) async {
     _coolMoviesRepository.removeMovieReviewById(idMovieReview);
+    emit(LoadingMovieScreenState());
+    await initializeScreen();
   }
 }
 
@@ -66,5 +66,7 @@ class LoadedMovieScreenState extends MovieScreenState{
 
   LoadedMovieScreenState(this.movieReview, this.allMoviesReview);
 }
+
+class LoadedMovieReviewScreenState extends MovieScreenState{}
 
 class LoadingMovieScreenState extends MovieScreenState {}

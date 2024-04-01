@@ -1,8 +1,9 @@
-import 'package:coolmovies/Screen/cool_movies_screen.dart';
-import 'package:coolmovies/Screen/movie_screen_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import '../Screen/cool_movies_screen.dart';
+import '../Screen/movie_screen_cubit.dart';
 
 class MovieReviewComponent extends StatefulWidget {
   final String movieId;

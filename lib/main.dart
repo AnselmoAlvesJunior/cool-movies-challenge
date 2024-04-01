@@ -1,9 +1,9 @@
 import 'package:coolmovies/di/dependency_injection.dart';
 import 'package:coolmovies/graph_ql_client_movies.dart';
+import 'package:coolmovies/ui/Screen/cool_movies_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'Screen/cool_movies_screen.dart';
 
 void main() async {
   await DependencyInjection().setup();

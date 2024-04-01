@@ -1,8 +1,10 @@
-import 'package:coolmovies/Screen/cool_movies_screen_cubit.dart';
-import 'package:coolmovies/Screen/movie_screen.dart';
-import 'package:coolmovies/component/movies_tile_component.dart';
+
+import 'package:coolmovies/ui/component/movies_tile_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'cool_movies_screen_cubit.dart';
+import 'movie_screen.dart';
 
 class CoolMoviesScreen extends StatelessWidget {
   const CoolMoviesScreen({Key? key}) : super(key: key);

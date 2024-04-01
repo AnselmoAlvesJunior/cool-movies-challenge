@@ -1,11 +1,11 @@
 
+import 'package:coolmovies/data/graphql/__generated__/all_movies.graphql.dart';
 import 'package:coolmovies/data/repository/cool_movies_repository.dart';
 import 'package:coolmovies/models/all_movies_adapter.dart';
 import 'package:coolmovies/models/all_movies_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../data/graphql/__generated__/all_movies.graphql.dart';
 
 class CoolMoviesScreenCubit extends Cubit<CoolMoviesScreenState>{
   final CoolMoviesRepository _coolMoviesRepository;

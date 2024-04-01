@@ -1,8 +1,8 @@
-import 'package:coolmovies/component/movie_review_component.dart';
 import 'package:coolmovies/models/all_movies_model.dart';
+import 'package:coolmovies/ui/component/movie_review_component.dart';
+import 'package:coolmovies/ui/component/movie_review_tile_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'movie_screen_cubit.dart';
 
@@ -55,44 +55,13 @@ class MovieScreen extends StatelessWidget {
                               scrollDirection: Axis.vertical,
                               itemCount:state.allMoviesReview.length,
                               itemBuilder: (final BuildContext context, final int index) {
-                                return Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(state.allMoviesReview[index]?.title ?? 'There is no review for this film yet',
-                                            style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
-                                          ),
-                                          const Text(
-                                            'Review:',
-                                            style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(state.allMoviesReview[index]?.body ?? 'There is no review for this film yet'),
-                                          const Text('Rating:',
-                                            style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
-                                          ),
-                                          RatingBar.builder(
-                                            ignoreGestures: true,
-                                            initialRating: state.allMoviesReview[index]?.rating?.toDouble() ?? 1.0,
-                                            minRating: 1,
-                                            direction: Axis.horizontal,
-                                            itemCount: 5,
-                                            itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                                            itemBuilder: (context, _) => const Icon(
-                                              Icons.star,
-                                              color: Colors.amber,
-                                            ),
-                                            onRatingUpdate: (rating) {
-                                              print('ratingupdate: $rating');
-                                            },
-                                          ),
-                                          TextButton(
-                                            child: const Text('Delete Review'),
-                                            onPressed: (){
-                                              context.read<MovieScreenCubit>().deleteMovieReview(state.allMoviesReview[index]!.id);
-                                            },
-                                          ),
-                                        ]
-                                      );
-                                    },
+                                return MovieReviewTileComponent(
+                                      title: state.allMoviesReview[index]?.title ?? 'There is no title for this movie',
+                                      body: state.allMoviesReview[index]?.body ?? 'There is no comment for this movie',
+                                      rating: state.allMoviesReview[index]?.rating?.toDouble() ?? 1.0,
+                                      onPressed: () => context.read<MovieScreenCubit>().deleteMovieReview(state.allMoviesReview[index]!.id),
+                                );
+                              },
                               separatorBuilder: ((context, index) => const  Divider()),
                               ),
                         ),

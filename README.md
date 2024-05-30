@@ -1,34 +1,26 @@
 # Coolmovies mobile challenge
 
-You have to add the cool movies review feature to the existing `coolmovies-mobile`.
+## Implementation:
+- The version used was Flutter 3.19.2
+- The Application was organized with **Clean Architecture**
+- Dependency Injection with **GetIt**
+- All state management was done with **Cubit** using states were created in the same file for the simplicity
+- Working with graphql and to generate the queries and mutations with the right types I used these libs **graphql_flutter** **graphql_codegen** **flutter_gen**
+- And for the rating I used **flutter_rating_bar**
 
-This folder contains a basic Flutter application with some example callbacks.
+## Visualization
+- the first screen we have a list of movies ![CoolMovies](screnshots_of_app/cool_movies.png) when we select one 
+- we go to movie screen ![MovieScreen](screenshots_of_app/movie_screen.png) where we have the name of movie, a button to delete the movie review, after that screen we can click on "Create your Review" then
+- we finish on this screen movie review![MovieReview](screenshots_of_app/movie_review.png)
 
-We've setup GraphQL for you. We recommend that you work on an emulator only, there's no need to test your application in a real device.
+**In this solution all required feature were created:**
+1. List all the available movies, showing at least the title #
+2. Tapping on a movie must open a view page presenting all the available information to the user #
+3. Each movie page must display all its reviews #
+4. Each review should consist of (at least): title, body and stars (1-5) #
+5. The user should be able to create new reviews #
+6. The user should be able to delete their own reviews in online mode only #
 
-## Acceptance Criteria
+Regards,
 
-**You will be evaluated on your UI/UX as we believe this is an important skill to have.**
-
-**You also will be evaluated based on your architectural choices.**
-
-**We suggest that you submit the assessment not later than a week span.**
-
-**DO NOT USE EXISTING TEMPLATES. You can copy the design but not the code, we have to evaluate you by your coding skills.**
-
-For your solution to be accepted it is required that your application is able to:
-
-1. List all the available movies, showing at least the title
-2. Tapping on a movie must open a view page presenting all the available information to the user
-3. Each movie page must display all its reviews
-4. Each review should consist of (at least): title, body and stars (1-5)
-5. The user should be able to create new reviews
-6. The user should be able to delete their own reviews in online mode only
-
-## Plus
-Consider adding the features below if you feel confortable and have the time
-- Unit tests
-
-Anything else is up to you (animations, assets, 3rd party dependencies, etc). We will consider all your additions so don't stick to the minimum!
-
-Good luck!
+Anselmo Alves Junior.

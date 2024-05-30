@@ -9,9 +9,14 @@
 - And for the rating I used **flutter_rating_bar**
 
 ## Visualization
-- the first screen we have a list of movies ![CoolMovies](screnshots_of_app/cool_movies.png) when we select one 
-- we go to movie screen ![MovieScreen](screenshots_of_app/movie_screen.png) where we have the name of movie, a button to delete the movie review, after that screen we can click on "Create your Review" then
-- we finish on this screen movie review![MovieReview](screenshots_of_app/movie_review.png)
+- the first screen we have a list of movies when we select one
+<img src="https://github.com/AnselmoAlvesJunior/cool-movies-challenge/blob/develop/screenshots_of_app/cool_movies.png" width="300" height="560">
+
+- we go to movie screen where we have the name of movie, a button to delete the movie review, after that screen we can click on "Create your Review" then
+<img src="https://github.com/AnselmoAlvesJunior/cool-movies-challenge/blob/develop/screenshots_of_app/movie_screen.png" width="300" height="560">
+
+- we finish on this screen movie review
+<img src="https://github.com/AnselmoAlvesJunior/cool-movies-challenge/blob/develop/screenshots_of_app/movie_review.png" width="300" height="560">
 
 **In this solution all required feature were created:**
 1. List all the available movies, showing at least the title #
